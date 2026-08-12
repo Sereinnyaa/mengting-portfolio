@@ -95,22 +95,33 @@ function Fade({ children, className = '', delay = 0 }: { children: React.ReactNo
 }
 
 function MagneticAvatar() {
-  const ref = useRef<HTMLDivElement>(null)
   const [pose, setPose] = useState({ x: 0, y: 0, rotateX: 0, rotateY: 0 })
+
+  useEffect(() => {
+    const onPointerMove = (event: PointerEvent) => {
+      const nx = event.clientX / window.innerWidth - .5
+      const ny = event.clientY / window.innerHeight - .5
+      setPose({
+        x: nx * 18,
+        y: Math.max(0, ((event.clientY / window.innerHeight) - .18) * 88),
+        rotateX: -ny * 5,
+        rotateY: nx * 8,
+      })
+    }
+    const onPointerLeave = () => setPose({ x: 0, y: 0, rotateX: 0, rotateY: 0 })
+    window.addEventListener('pointermove', onPointerMove)
+    document.documentElement.addEventListener('pointerleave', onPointerLeave)
+    return () => {
+      window.removeEventListener('pointermove', onPointerMove)
+      document.documentElement.removeEventListener('pointerleave', onPointerLeave)
+    }
+  }, [])
+
   return (
     <motion.div
-      ref={ref}
       className="avatar-shell"
-      onMouseMove={(event) => {
-        const box = ref.current?.getBoundingClientRect()
-        if (!box) return
-        const nx = (event.clientX - box.left) / box.width - .5
-        const ny = (event.clientY - box.top) / box.height - .5
-        setPose({ x: nx * 18, y: ny * 12, rotateX: -ny * 7, rotateY: nx * 9 })
-      }}
-      onMouseLeave={() => setPose({ x: 0, y: 0, rotateX: 0, rotateY: 0 })}
       animate={pose}
-      transition={{ type: 'spring', stiffness: 105, damping: 17, mass: .7 }}
+      transition={{ type: 'spring', stiffness: 92, damping: 18, mass: .72 }}
     >
       <div className="avatar-glow" />
       <div className="orbit orbit-a"><i /><i /><i /></div>

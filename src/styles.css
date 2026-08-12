@@ -87,15 +87,18 @@ nav a:hover { transform: translateY(-2px); }
   text-align: center;
   position: relative;
   z-index: 0;
-  margin-top: clamp(44px, 8vh, 94px);
+  left: 50%;
+  width: calc(100vw - 46px);
+  margin-top: clamp(40px, 6vh, 72px);
+  translate: -50% 0;
   pointer-events: none;
 }
 
 .hero-title h1 {
   font-family: var(--display-font);
-  font-size: clamp(62px, 9.3vw, 150px);
-  letter-spacing: -.087em;
-  line-height: .82;
+  font-size: clamp(72px, 12.65vw, 205px);
+  letter-spacing: -.096em;
+  line-height: .8;
   margin: 0;
   background: linear-gradient(180deg, #f2f5f6 0%, #707a85 75%, #30343a 100%);
   background-clip: text;
@@ -107,15 +110,16 @@ nav a:hover { transform: translateY(-2px); }
   position: absolute;
   z-index: 4;
   left: 50%;
-  bottom: -5%;
+  bottom: -1%;
   translate: -50% 0;
-  width: min(43vw, 610px);
+  width: min(34vw, 500px);
   aspect-ratio: 4 / 5;
   display: grid;
   place-items: center;
   perspective: 900px;
   transform-style: preserve-3d;
   will-change: transform;
+  pointer-events: none;
 }
 
 .avatar-shell > img {
@@ -259,9 +263,9 @@ footer h2 { font-size: clamp(58px, 8.5vw, 130px); margin: 8vh 0 6vh; }
 
 @media (max-width: 1000px) {
   .hero { padding: 20px; }
-  .hero-title { margin-top: 10vh; }
-  .hero-title h1 { font-size: 9.2vw; }
-  .avatar-shell { width: min(62vw, 560px); bottom: 2%; }
+  .hero-title { width: calc(100vw - 28px); margin-top: 9vh; }
+  .hero-title h1 { font-size: 12.3vw; }
+  .avatar-shell { width: min(50vw, 460px); bottom: 5%; }
   .hero-bottom { padding-bottom: 10px; }
   .scroll-cue { display: none; }
   .player-profile { grid-template-columns: 1fr; }
@@ -280,8 +284,8 @@ footer h2 { font-size: clamp(58px, 8.5vw, 130px); margin: 8vh 0 6vh; }
   nav a:first-child, nav a:last-child { text-align: center; }
   .hero { min-height: 790px; }
   .hero-title { margin-top: 13vh; }
-  .hero-title h1 { font-size: 8.9vw; }
-  .avatar-shell { width: 96vw; bottom: 8%; }
+  .hero-title h1 { font-size: 12.1vw; }
+  .avatar-shell { width: 78vw; bottom: 29%; }
   .hero-bottom > div { max-width: 215px; }
   .hero-bottom p { font-size: 12px; line-height: 1.55; }
   .image-showcase { padding: 36px 0 70px; }
