@@ -38,6 +38,8 @@ const projects = [
     summary: '一个能够规划完整行程、查询实时交通方案，并从个人差旅知识库中回答政策问题的旅行 Agent。',
     metrics: [['规划', '完整差旅行程'], ['查询', '实时交通方案'], ['检索', '差旅政策知识']],
     visual: 'tripsage',
+    link: 'https://tripsage.tripsage-cloudflare-demo.workers.dev/',
+    linkLabel: '访问 TripSage',
   },
   {
     id: '05',
@@ -47,6 +49,8 @@ const projects = [
     summary: '从一个主题或源文件出发，自动组织演示叙事、规划页面结构，并生成一套可继续编辑的完整幻灯片。',
     metrics: [['输入', '主题或文件'], ['规划', '演示叙事结构'], ['输出', '可编辑幻灯片']],
     visual: 'autodeck',
+    link: 'https://github.com/Sereinnyaa/AutoDeck',
+    linkLabel: '查看 AutoDeck 源码',
   },
 ]
 
@@ -158,7 +162,10 @@ function ProjectCard({ project, index }: { project: typeof projects[number]; ind
       <motion.article style={{ scale, zIndex: index + 1 }} className="project-card">
         <header>
           <span className="project-number">{project.id}</span>
-          <div><p>{project.company}</p><h3>{project.title}</h3><small>{project.role}</small></div>
+          <div className="project-title-block">
+            <p>{project.company}</p><h3>{project.title}</h3><small>{project.role}</small>
+            {project.link && <a className="project-link" href={project.link} target="_blank" rel="noreferrer">{project.linkLabel}<ArrowUpRight /></a>}
+          </div>
         </header>
         <div className="project-body">
           <div className="project-copy">

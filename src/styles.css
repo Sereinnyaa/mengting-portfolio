@@ -217,6 +217,10 @@ nav a:hover { transform: translateY(-2px); }
 .project-card header p { font-size: 12px; letter-spacing: .1em; color: #7fa7ff; margin: 0 0 5px; }
 .project-card header h3 { font-size: clamp(30px, 3.4vw, 52px); letter-spacing: -.055em; line-height: 1.12; margin: 0; }
 .project-card header small { display: block; margin-top: 10px; letter-spacing: .08em; color: #7c8790; }
+.project-title-block { min-width: 0; position: relative; padding-right: 185px; }
+.project-link { position: absolute; right: 0; top: 50%; translate: 0 -50%; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(126, 167, 255, .45); border-radius: 100px; padding: 10px 14px; color: #a8c2ff; font-size: 11px; letter-spacing: .06em; transition: color .2s, border-color .2s, background .2s, transform .2s; }
+.project-link:hover { color: #fff; border-color: #7ea7ff; background: rgba(52, 120, 255, .14); transform: translateY(-2px); }
+.project-link svg { width: 15px; height: 15px; }
 .project-body { display: flex; flex-direction: column; justify-content: space-between; gap: 18px; padding-top: 20px; flex: 1; min-height: 0; }
 .project-copy { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(360px, .9fr); gap: clamp(28px, 5vw, 86px); align-items: end; min-height: 0; }
 .project-copy > p { font-size: clamp(16px, 1.35vw, 21px); line-height: 1.65; letter-spacing: -.02em; max-width: 720px; margin: 0; color: #c6d0d6; }
@@ -290,6 +294,8 @@ footer h2 { font-size: clamp(58px, 8.5vw, 130px); margin: 8vh 0 6vh; }
   .project-card header { grid-template-columns: 68px 1fr; }
   .project-card header h3 { font-size: 28px; }
   .project-card header small { font-size: 9px; }
+  .project-title-block { padding-right: 0; }
+  .project-link { position: static; translate: none; margin-top: 14px; padding: 8px 11px; width: fit-content; }
   .project-body { gap: 18px; }
   .metric-row { grid-template-columns: 1fr; }
   .metric-row > div { display: flex; justify-content: space-between; align-items: center; }
