@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowDown, ArrowUpRight, Github, Mail } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, FileDown, Github, Mail } from 'lucide-react'
 
 const projects = [
   {
@@ -71,18 +71,18 @@ const traits = [
 
 const galleryRows = [
   [
-    ['/assets/focus-assistant.webp', '焦点科技 AI 洽谈助手'],
-    ['/assets/qa-office.webp', '阿里国际办公经历'],
-    ['/assets/tripsage-home.webp', 'TripSage 首页'],
-    ['/assets/autodeck-output.webp', 'AutoDeck 生成结果'],
-    ['/assets/fulfillment-life.webp', '阿里国际团队活动'],
+    ['assets/focus-assistant.webp', '焦点科技 AI 洽谈助手'],
+    ['assets/qa-office.webp', '阿里国际办公经历'],
+    ['assets/tripsage-home.webp', 'TripSage 首页'],
+    ['assets/autodeck-output.webp', 'AutoDeck 生成结果'],
+    ['assets/fulfillment-life.webp', '阿里国际团队活动'],
   ],
   [
-    ['/assets/qa-evaluation.webp', '答疑 Agent 评测归因体系'],
-    ['/assets/fulfillment-brain.webp', '履约体验决策大脑'],
-    ['/assets/tripsage-results.webp', 'TripSage 实时方案'],
-    ['/assets/focus-life-v2.webp', '焦点科技经历'],
-    ['/assets/autodeck-input.webp', 'AutoDeck 输入界面'],
+    ['assets/qa-evaluation.webp', '答疑 Agent 评测归因体系'],
+    ['assets/fulfillment-brain.webp', '履约体验决策大脑'],
+    ['assets/tripsage-results.webp', 'TripSage 实时方案'],
+    ['assets/focus-life-v2.webp', '焦点科技经历'],
+    ['assets/autodeck-input.webp', 'AutoDeck 输入界面'],
   ],
 ]
 
@@ -115,7 +115,7 @@ function MagneticAvatar() {
       <div className="avatar-glow" />
       <div className="orbit orbit-a"><i /><i /><i /></div>
       <div className="orbit orbit-b"><i /><i /></div>
-      <img src="/assets/hero-avatar-rimless-glasses.webp" alt="喻梦婷佩戴无边框眼镜的 3D 头像" />
+      <img src="assets/hero-avatar-rimless-glasses.webp" alt="喻梦婷佩戴无边框眼镜的 3D 头像" />
     </motion.div>
   )
 }
@@ -146,11 +146,11 @@ function MediaTile({ src, alt, className = '' }: { src: string; alt: string; cla
 }
 
 function ProjectVisual({ type }: { type: string }) {
-  if (type === 'agent') return <div className="project-media project-media-pair"><MediaTile className="media-photo" src="/assets/qa-office.webp" alt="阿里国际经历" /><MediaTile className="media-screen" src="/assets/qa-evaluation.webp" alt="答疑 Agent 评测归因体系" /></div>
-  if (type === 'fulfillment') return <div className="project-media project-media-pair"><MediaTile className="media-photo" src="/assets/fulfillment-life.webp" alt="阿里国际团队活动" /><MediaTile className="media-screen" src="/assets/fulfillment-brain.webp" alt="履约体验决策大脑" /></div>
-  if (type === 'focus') return <div className="project-media project-media-pair"><MediaTile className="media-photo" src="/assets/focus-life-v2.webp" alt="焦点科技经历" /><MediaTile className="media-screen" src="/assets/focus-assistant.webp" alt="AI 洽谈助手产品界面" /></div>
-  if (type === 'tripsage') return <div className="project-media project-media-three"><MediaTile className="media-screen" src="/assets/tripsage-home.webp" alt="TripSage 首页" /><MediaTile className="media-screen" src="/assets/tripsage-knowledge.webp" alt="个人差旅知识空间" /><MediaTile className="media-screen" src="/assets/tripsage-results.webp" alt="实时差旅方案查询" /></div>
-  return <div className="project-media project-media-pair"><MediaTile className="media-screen" src="/assets/autodeck-input.webp" alt="AutoDeck 主题输入" /><MediaTile className="media-screen" src="/assets/autodeck-output.webp" alt="AutoDeck 幻灯片输出" /></div>
+  if (type === 'agent') return <div className="project-media project-media-pair"><MediaTile className="media-photo" src="assets/qa-office.webp" alt="阿里国际经历" /><MediaTile className="media-screen" src="assets/qa-evaluation.webp" alt="答疑 Agent 评测归因体系" /></div>
+  if (type === 'fulfillment') return <div className="project-media project-media-pair"><MediaTile className="media-photo" src="assets/fulfillment-life.webp" alt="阿里国际团队活动" /><MediaTile className="media-screen" src="assets/fulfillment-brain.webp" alt="履约体验决策大脑" /></div>
+  if (type === 'focus') return <div className="project-media project-media-pair"><MediaTile className="media-photo" src="assets/focus-life-v2.webp" alt="焦点科技经历" /><MediaTile className="media-screen" src="assets/focus-assistant.webp" alt="AI 洽谈助手产品界面" /></div>
+  if (type === 'tripsage') return <div className="project-media project-media-three"><MediaTile className="media-screen" src="assets/tripsage-home.webp" alt="TripSage 首页" /><MediaTile className="media-screen" src="assets/tripsage-knowledge.webp" alt="个人差旅知识空间" /><MediaTile className="media-screen" src="assets/tripsage-results.webp" alt="实时差旅方案查询" /></div>
+  return <div className="project-media project-media-pair"><MediaTile className="media-screen" src="assets/autodeck-input.webp" alt="AutoDeck 主题输入" /><MediaTile className="media-screen" src="assets/autodeck-output.webp" alt="AutoDeck 幻灯片输出" /></div>
 }
 
 function ProjectCard({ project, index }: { project: typeof projects[number]; index: number }) {
@@ -252,10 +252,11 @@ export default function App() {
 
       <footer id="contact">
         <div className="section-index">04 / 联系我</div>
-        <Fade><p className="availability"><i /> 正在寻找 AI 产品相关机会</p><h2>一起把有趣的事，<br />做成 <em>长期有价值</em> 的产品</h2></Fade>
+        <Fade><p className="availability"><i /> 正在寻找 AI 产品相关机会</p><h2>一起把有趣的事，<br />做成 <em className="value-word">长期有价值</em> 的产品</h2></Fade>
         <div className="footer-links">
-          <a href="mailto:nyaaserein@163.com"><Mail /> NYAASEREIN@163.COM <ArrowUpRight /></a>
+          <a href="mailto:nyaaserein@163.com"><Mail /> 邮箱/nyaaserein@163.COM <ArrowUpRight /></a>
           <a href="https://github.com/Sereinnyaa" target="_blank" rel="noreferrer"><Github /> GITHUB / SEREINNYAA <ArrowUpRight /></a>
+          <a href="resume/mengting-yu-ai-pm.pdf" download="喻梦婷_AI产品经理_简历.pdf"><FileDown /> 下载简历 / RESUME <ArrowUpRight /></a>
         </div>
         <div className="footer-bottom"><span>© 2026 喻梦婷</span><a href="#top">返回顶部 ↑</a><span>Stay Curious, Keep Building</span></div>
       </footer>
