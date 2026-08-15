@@ -99,13 +99,21 @@ function MagneticAvatar() {
 
   useEffect(() => {
     const onPointerMove = (event: PointerEvent) => {
-      const nx = event.clientX / window.innerWidth - .5
-      const ny = event.clientY / window.innerHeight - .5
+      if (event.pointerType && event.pointerType !== 'mouse') {
+        setPose({ x: 0, y: 0, rotateX: 0, rotateY: 0 })
+        return
+      }
+
+      const px = event.clientX / window.innerWidth
+      const py = event.clientY / window.innerHeight
+      const horizontalProgress = Math.max(-1, Math.min(1, (px - .5) * 2))
+      const downwardProgress = Math.max(0, Math.min(1, (py - .2) / .8))
+
       setPose({
-        x: nx * 18,
-        y: Math.max(0, ((event.clientY / window.innerHeight) - .18) * 88),
-        rotateX: -ny * 5,
-        rotateY: nx * 8,
+        x: horizontalProgress * 4,
+        y: downwardProgress * 28,
+        rotateX: (.5 - py) * 1.6,
+        rotateY: horizontalProgress * 1.4,
       })
     }
     const onPointerLeave = () => setPose({ x: 0, y: 0, rotateX: 0, rotateY: 0 })
@@ -121,7 +129,7 @@ function MagneticAvatar() {
     <motion.div
       className="avatar-shell"
       animate={pose}
-      transition={{ type: 'spring', stiffness: 92, damping: 18, mass: .72 }}
+      transition={{ type: 'spring', stiffness: 78, damping: 24, mass: .82 }}
     >
       <div className="avatar-glow" />
       <div className="orbit orbit-a"><i /><i /><i /></div>
