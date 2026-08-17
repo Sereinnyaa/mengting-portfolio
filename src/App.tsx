@@ -38,7 +38,7 @@ const projects = [
     summary: '一个能够规划完整行程、查询实时交通方案，并从个人差旅知识库中回答政策问题的旅行 Agent。',
     metrics: [['规划', '完整差旅行程'], ['查询', '实时交通方案'], ['检索', '差旅政策知识']],
     visual: 'tripsage',
-    link: 'https://tripsage.tripsage-cloudflare-demo.workers.dev/',
+    link: 'https://tripsage.pocketbay.app/',
     linkLabel: '访问 TripSage',
   },
   {
